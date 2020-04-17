@@ -1,9 +1,9 @@
 package main;
 
-public class canalInexistente extends Exception{
+public class CanalInexistente extends Exception{
     private int numeroDoCanal;
 
-    public canalInexistente(int numeroDoCanal) {
+    public CanalInexistente(int numeroDoCanal) {
         this.numeroDoCanal = numeroDoCanal;
     }  
      

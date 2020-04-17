@@ -67,7 +67,7 @@ public abstract class Televisao {
             if(numeroDoCanalExiste){
                 this.canalAtual.setNumeroDoCanal(numeroDoCanal);
             }else if(!numeroDoCanalExiste){
-                throw new canalInexistente(numeroDoCanal);
+                throw new CanalInexistente(numeroDoCanal);
             }
         } catch(Exception e){
             System.out.println("Aconteceu um erro");
