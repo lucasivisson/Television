@@ -78,7 +78,7 @@ public class Main {
                     boolean ehHd = teclado.nextBoolean();
                     
                     controle.verificarCanalExistente(tviden, numeroDoCanal, nomeDoCanal, ehHd);
-                    
+                    break;
                 case 3:
                     controle.mostrarTvsDisponiveis();
                     System.out.println("Digite a identidade da Tv que vc quer buscar algum canal:");
