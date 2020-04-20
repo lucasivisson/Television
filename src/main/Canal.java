@@ -1,6 +1,6 @@
 package main;
 
-public class Canal {
+public class Canal implements Comparable<Canal>{
     private int numeroDoCanal;
     private String nomeDoCanal;
     private boolean hd;
@@ -27,5 +27,16 @@ public class Canal {
         this.numeroDoCanal = numeroDoCanal;
         this.nomeDoCanal = nomeDoCanal;
         this.hd = hd;
+    }
+
+    @Override
+    public int compareTo(Canal outroCanal) {
+        if(this.numeroDoCanal < outroCanal.getNumeroDoCanal()){
+            return -1;
+        } else if(this.numeroDoCanal > outroCanal.getNumeroDoCanal()){
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }

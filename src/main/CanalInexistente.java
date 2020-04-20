@@ -9,6 +9,6 @@ public class CanalInexistente extends Exception{
      
     @Override
     public String toString(){
-        return "Canal " + numeroDoCanal + " Inexistente";
+        return "Canal " + numeroDoCanal + " Inexistente.";
     }
 }
