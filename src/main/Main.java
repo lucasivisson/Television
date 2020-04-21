@@ -52,6 +52,7 @@ public class Main {
             System.out.println("5: Informar dados do canal atual");
             System.out.println("6: Informar grade de canais ");
             System.out.println("7: Informar tv's disponíveis");
+            System.out.println("8: Sair");
             escolha = teclado.nextInt();
 
             switch(escolha) {
@@ -117,6 +118,6 @@ public class Main {
                     break;
             }
 
-        } while (escolha != 10);
+        } while (escolha != 8);
     }  
 }
