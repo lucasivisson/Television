@@ -29,7 +29,7 @@ public class ControleRemoto {
             } else {
                 listaDeTv.add(tv);   
             }
-        } catch(Exception e){
+        } catch(TvExistente e){
             e.getMessage();
             e.printStackTrace();
         }
