@@ -44,14 +44,20 @@ public class ControleRemoto {
                 
                 boolean existeCanal = listaDeTv.get(i).verificarCanalExistente(canalExiste);
                 if(existeCanal){
+                    System.out.println("--------------------------------------");
                     System.out.println("O canal existe!");
+                    System.out.println("--------------------------------------");
                 }else{
+                    System.out.println("--------------------------------------");
                     System.out.println("O canal não existe!");
+                    System.out.println("--------------------------------------");
                 }
             }
         }
         if(!tvExiste){
+            System.out.println("--------------------------------------");
             System.out.println("A tv escolhida não existe");
+            System.out.println("--------------------------------------");
         }
     }
     
@@ -62,12 +68,16 @@ public class ControleRemoto {
             if(listaDeTv.get(i).getId().equals(id)){
                 tvExiste = true;
                 volumeAtual = listaDeTv.get(i).alterarVolume(escolha);
+                System.out.println("--------------------------------------");
                 System.out.println("TV: " + listaDeTv.get(i).getId());
                 System.out.println("Volume: " + volumeAtual);
+                System.out.println("--------------------------------------");
             }
         }
         if(!tvExiste){
+            System.out.println("--------------------------------------");
             System.out.println("A tv escolhida não existe");
+            System.out.println("--------------------------------------");
         }
     }
     
@@ -82,8 +92,10 @@ public class ControleRemoto {
                 for(int j = 0; j < listaDeTv.get(i).canaisDisponiveis.size(); j++) {
                     if(listaDeTv.get(i).canaisDisponiveis.get(j).getNumeroDoCanal() == numeroDoCanal) {
                         listaDeTv.get(i).sintonizar(numeroDoCanal);
+                        System.out.println("--------------------------------------");
                         System.out.println("Canal sintonizado com sucesso!");
                         System.out.println("Canal Atual: " + listaDeTv.get(i).toString());
+                        System.out.println("--------------------------------------");
 
                         existeCanal = true;
                     }
@@ -95,10 +107,14 @@ public class ControleRemoto {
             }
         }
         if(!existeTv) {
+            System.out.println("--------------------------------------");
             System.out.println("Tv não existe, tente novamente.");
+            System.out.println("--------------------------------------");
         }
         if(!existeCanal) {
+            System.out.println("--------------------------------------");
             System.out.println("Canal não existe, tente novamente.");
+            System.out.println("--------------------------------------");
         }
     }
     
@@ -111,7 +127,9 @@ public class ControleRemoto {
             }
         }
         if(!existeTv){
+            System.out.println("--------------------------------------");
             System.out.println("Tv não existe, tente novamente.");
+            System.out.println("--------------------------------------");
         }
     }
     
@@ -124,7 +142,9 @@ public class ControleRemoto {
             }
         }
         if(!existeTv){
+            System.out.println("--------------------------------------");
             System.out.println("Tv não existe, tente novamente.");
+            System.out.println("--------------------------------------");
         }
     }
     
@@ -137,13 +157,17 @@ public class ControleRemoto {
             }
         }
         if(!tvExiste){
+            System.out.println("--------------------------------------");
             System.out.println("A tv escolhida não existe");
+            System.out.println("--------------------------------------");
         }
     }
     
     public void mostrarTvsDisponiveis(){
         for(int i=0; i<listaDeTv.size(); i++){
+            System.out.println("--------------------------------------");
             System.out.println(listaDeTv.get(i).getId());
+            System.out.println("--------------------------------------");
         }
     }
 }

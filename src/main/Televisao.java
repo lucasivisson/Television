@@ -91,13 +91,17 @@ public abstract class Televisao {
             for(int i = 0; i < canaisDisponiveis.size(); i++) {
                 if (canalAtual == canaisDisponiveis.get(0)) {
                     canalAtual = canaisDisponiveis.get(canaisDisponiveis.size() - 1);
+                    System.out.println("--------------------------------------");
                     System.out.println("Canal alterado com sucesso.");
                     System.out.println("Canal Atual: " + this.canalAtual);
+                    System.out.println("--------------------------------------");
                     break;
                 } else if(canalAtual == canaisDisponiveis.get(i)) {
                     canalAtual = canaisDisponiveis.get(i - 1);
+                    System.out.println("--------------------------------------");
                     System.out.println("Canal alterado com sucesso.");
                     System.out.println("Canal Atual: " + this.canalAtual);
+                    System.out.println("--------------------------------------");
                     break;
                 }
             }
@@ -106,13 +110,17 @@ public abstract class Televisao {
             for(int i = 0; i < canaisDisponiveis.size(); i++) {
                 if (canalAtual == canaisDisponiveis.get(canaisDisponiveis.size() - 1)) {
                     canalAtual = canaisDisponiveis.get(0);
+                    System.out.println("--------------------------------------");
                     System.out.println("Canal alterado com sucesso.");
                     System.out.println("Canal Atual: " + this.canalAtual);
+                    System.out.println("--------------------------------------");
                     break;
                 } else if(canalAtual == canaisDisponiveis.get(i)) {
                     canalAtual = canaisDisponiveis.get(i + 1);
+                    System.out.println("--------------------------------------");
                     System.out.println("Canal alterado com sucesso.");
                     System.out.println("Canal Atual: " + this.canalAtual);
+                    System.out.println("--------------------------------------");
                     break;
                 }
             }
@@ -121,19 +129,22 @@ public abstract class Televisao {
     }
     
     public void informarDados(){
-
+        System.out.println("--------------------------------------");
         System.out.println("Nome do canal: " + this.canalAtual.getNomeDoCanal());
         System.out.println("Número do canal: " + this.canalAtual.getNumeroDoCanal());
         System.out.println("Canal HD: " + this.canalAtual.getHd());
+        System.out.println("--------------------------------------");
     }
     
     public void mostrarGrade() {        
         
         Collections.sort(canaisDisponiveis);
         for( int i = 0; i < canaisDisponiveis.size(); i++) {
+            System.out.println("--------------------------------------");
             System.out.println("Nome do canal: " + canaisDisponiveis.get(i).getNomeDoCanal());
             System.out.println("Número do canal: " + canaisDisponiveis.get(i).getNumeroDoCanal());
             System.out.println("Canal HD: " + canaisDisponiveis.get(i).getHd());
+            System.out.println("--------------------------------------");
         }
     }
     
