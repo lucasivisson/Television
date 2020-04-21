@@ -73,20 +73,12 @@ public class ControleRemoto {
     
     public void sintonizar(String id, int numeroDoCanal){
         boolean existeTv = false;
-        boolean sintonizou = false;
-        
-        for(int i = 0; i < listaDeTv.size(); i++) {
-            for(int j = 0; j < listaDeTv.get(i).canaisDisponiveis.size(); j++) {
-                if(listaDeTv.get(i).canaisDisponiveis.get(j).getNumeroDoCanal() == numeroDoCanal) {
-                    existeTv = true;
-                    listaDeTv.get(i).sintonizar(numeroDoCanal);
-                    System.out.println("Canal sintonizado com sucesso!");
-                    System.out.println("Canal Atual: " + listaDeTv.get(i).toString());
-                    sintonizou = true;
-                }
-            }
-            if(sintonizou) {
-                break;
+        for(int i=0; i<listaDeTv.size(); i++){
+            if(listaDeTv.get(i).getId().equals(id)){
+                existeTv = true;
+                listaDeTv.get(i).sintonizar(numeroDoCanal);
+                System.out.println("Canal sintonizado com sucesso!");
+                System.out.println("Canal Atual: " + listaDeTv.get(i).toString());
             }
         }
         if(!existeTv){
