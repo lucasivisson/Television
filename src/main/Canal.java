@@ -11,10 +11,10 @@ public class Canal implements Comparable<Canal>{
     public void setNumeroDoCanal(int numeroDoCanal){
         this.numeroDoCanal = numeroDoCanal;
     }
-    public String getNome(){
+    public String getNomeDoCanal(){
         return this.nomeDoCanal;
     }
-    public void setNome(String nomeDoCanal){
+    public void setNomeDoCanal(String nomeDoCanal){
         this.nomeDoCanal = nomeDoCanal;
     }
     public boolean getHd(){
@@ -38,5 +38,9 @@ public class Canal implements Comparable<Canal>{
         } else {
             return 0;
         }
+    }
+    
+    public String toString(){
+        return "Número do Canal: " + this.numeroDoCanal + ", Nome do Canal: " + this.nomeDoCanal + ", HD: " + this.hd;
     }
 }

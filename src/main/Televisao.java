@@ -13,8 +13,8 @@ public abstract class Televisao {
     public static final int VOLUME_MAX = 10;
     public static final int VOLUME_MIN = 0;
 
-    public Televisao(ArrayList<Canal> canaisDisponiveis, String id) {
-        this.canaisDisponiveis = canaisDisponiveis;
+    public Televisao(ArrayList<Canal> canaisCadastrados, String id) {
+        this.canaisCadastrados = canaisCadastrados;
         this.id = id;
         this.volume = 5;
     }
@@ -33,16 +33,16 @@ public abstract class Televisao {
     public String getId(){
         return this.id;
     }
-    public void setCanalAtual(String id){
+    public void setId(String id){
         this.id = id;
     }
     
     public int alterarVolume(String escolha){
-        if(escolha.equals("aumenta")){
+        if(escolha.equals("aumentar")){
             if(this.volume < VOLUME_MAX){
                 this.volume++;   
             }
-        } else if(escolha.equals("diminui")){
+        } else if(escolha.equals("diminuir")){
             if(this.volume > VOLUME_MIN){
                 this.volume--;
             }
@@ -55,7 +55,7 @@ public abstract class Televisao {
     public boolean verificarCanalExistente(Canal canal){
         boolean canalExiste = false;
         for(int i=0; i<canaisDisponiveis.size(); i++){
-            if(canaisDisponiveis.get(i).getNome().equals(canal.getNome())){
+            if(canaisDisponiveis.get(i).getNomeDoCanal().equals(canal.getNomeDoCanal())){
                 canalExiste = true;
                 return canalExiste; 
             }
@@ -69,12 +69,14 @@ public abstract class Televisao {
             for(int i=0; i<canaisDisponiveis.size(); i++){
                 if(canaisDisponiveis.get(i).getNumeroDoCanal() == numeroDoCanal){
                     numeroDoCanalExiste = true;
+                    if(numeroDoCanalExiste){
+                        this.canalAtual.setNumeroDoCanal(numeroDoCanal);
+                        this.canalAtual.setNomeDoCanal(canaisDisponiveis.get(i).getNomeDoCanal());
+                        this.canalAtual.setHd(canaisDisponiveis.get(i).getHd());
+                    }else if(!numeroDoCanalExiste){
+                        throw new CanalInexistente(numeroDoCanal);
+                    }
                 }
-            }
-            if(numeroDoCanalExiste){
-                this.canalAtual.setNumeroDoCanal(numeroDoCanal);
-            }else if(!numeroDoCanalExiste){
-                throw new CanalInexistente(numeroDoCanal);
             }
         } catch(Exception e){
             System.out.println("Aconteceu um erro");
@@ -84,24 +86,33 @@ public abstract class Televisao {
     }
     
     public Canal alterarCanal(String escolha){
+        Collections.sort(canaisDisponiveis);
         if(escolha.equals("anterior")){
             for(int i = 0; i < canaisDisponiveis.size(); i++) {
                 if (canalAtual == canaisDisponiveis.get(0)) {
                     canalAtual = canaisDisponiveis.get(canaisDisponiveis.size() - 1);
+                    System.out.println("Canal alterado com sucesso.");
+                    System.out.println("Canal Atual: " + this.canalAtual);
                     break;
                 } else if(canalAtual == canaisDisponiveis.get(i)) {
                     canalAtual = canaisDisponiveis.get(i - 1);
+                    System.out.println("Canal alterado com sucesso.");
+                    System.out.println("Canal Atual: " + this.canalAtual);
                     break;
                 }
             }
         }
-        if(escolha.equals("próximo")){
+        if(escolha.equals("proximo")){
             for(int i = 0; i < canaisDisponiveis.size(); i++) {
-                if (canalAtual == canaisDisponiveis.get(canaisDisponiveis.size())) {
+                if (canalAtual == canaisDisponiveis.get(canaisDisponiveis.size() - 1)) {
                     canalAtual = canaisDisponiveis.get(0);
+                    System.out.println("Canal alterado com sucesso.");
+                    System.out.println("Canal Atual: " + this.canalAtual);
                     break;
                 } else if(canalAtual == canaisDisponiveis.get(i)) {
                     canalAtual = canaisDisponiveis.get(i + 1);
+                    System.out.println("Canal alterado com sucesso.");
+                    System.out.println("Canal Atual: " + this.canalAtual);
                     break;
                 }
             }
@@ -111,7 +122,7 @@ public abstract class Televisao {
     
     public void informarDados(){
 
-        System.out.println("Nome do canal: " + this.canalAtual.getNome());
+        System.out.println("Nome do canal: " + this.canalAtual.getNomeDoCanal());
         System.out.println("Número do canal: " + this.canalAtual.getNumeroDoCanal());
         System.out.println("Canal HD: " + this.canalAtual.getHd());
     }
@@ -119,11 +130,14 @@ public abstract class Televisao {
     public void mostrarGrade() {        
         
         Collections.sort(canaisDisponiveis);
-
         for( int i = 0; i < canaisDisponiveis.size(); i++) {
-            System.out.println("Nome do canal: " + canaisDisponiveis.get(i).getNome());
+            System.out.println("Nome do canal: " + canaisDisponiveis.get(i).getNomeDoCanal());
             System.out.println("Número do canal: " + canaisDisponiveis.get(i).getNumeroDoCanal());
             System.out.println("Canal HD: " + canaisDisponiveis.get(i).getHd());
         }
+    }
+    
+        public String toString(){
+        return "Id da tv: " + this.id + ", " + this.canalAtual;
     }
 }

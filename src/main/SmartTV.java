@@ -19,7 +19,7 @@ public class SmartTV extends Televisao {
 
     @Override
     public void cadastrarCanais() {
-        canaisCadastrados.addAll(canaisDisponiveis);
-        setCanalAtual(canaisDisponiveis.get(0));
+        canaisDisponiveis.addAll(canaisCadastrados);
+        setCanalAtual(canaisCadastrados.get(0));
     }
 }

@@ -4,7 +4,6 @@ import java.util.*;
 
 public class TVHD extends Televisao {
     private String modelo;
-    private ArrayList<Canal> lista = new ArrayList<Canal>();
 
     public TVHD( ArrayList<Canal> canaisDisponiveis, String modelo, String id ) {
         super(canaisDisponiveis, id);
@@ -13,11 +12,11 @@ public class TVHD extends Televisao {
 
     @Override
     public void cadastrarCanais() {
-        for(int i = 0; i < canaisDisponiveis.size(); i++) {
-            if(canaisDisponiveis.get(i).getHd()) {
-                canaisCadastrados.add(canaisDisponiveis.get(i));
+        for(int i = 0; i < canaisCadastrados.size(); i++) {
+            if(canaisCadastrados.get(i).getHd()) {
+                canaisDisponiveis.add(canaisCadastrados.get(i));
             }
         }
-        setCanalAtual(canaisCadastrados.get(lista.size() - 1));
+        setCanalAtual(canaisDisponiveis.get(canaisDisponiveis.size() - 1));
     }
 }
