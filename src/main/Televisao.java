@@ -78,7 +78,7 @@ public abstract class Televisao {
                     }
                 }
             }
-        } catch(Exception e){
+        } catch(CanalInexistente e){
             System.out.println("Aconteceu um erro");
             e.getMessage();
             e.printStackTrace();
